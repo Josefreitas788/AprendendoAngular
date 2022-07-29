@@ -12,15 +12,16 @@ import { AulaService } from '../aula/aula.service';
 export class AulaCreateComponent implements OnInit {
   aulaForm!: FormGroup;
   submitted = false;
+  // cursos: Curso[];
   cursos: Curso[] = [];
   constructor(
     private aulaService: AulaService,
     private formBuilder: FormBuilder,
     private cursoService: CursoService
   ) {
-    // this.cursoService.listarCursos().subscribe((dados: Curso[]) => {
-    //   this.cursos = dados;
-    //   });
+    this.cursoService.listarCursos().subscribe((dados: Curso[]) => {
+      this.cursos = dados;
+      });
    }
   ngOnInit(): void {
     this.aulaForm = this.formBuilder.group({
@@ -29,9 +30,9 @@ export class AulaCreateComponent implements OnInit {
       tempoDuracao: new FormControl('', [Validators.required]),
       curso: new FormControl('', [Validators.required]),
     });
-    this.cursoService.listarCursos().subscribe((dados: Curso[]) => {
-       this.cursos = dados;
-       });
+    // this.cursoService.listarCursos().subscribe((dados: Curso[]) => {
+    //    this.cursos = dados;
+    //    });
   }
   save() {
     if (this.aulaForm.valid) {

@@ -24,5 +24,9 @@ export class AulaService {
   update(id?: number, Aula?: Aula): Observable<any> {
     return this.httpClient.put(`${this.API}/${id}`, Aula);
   }
+  buscarPorId(id: number): Observable<any>{
+    return this.httpClient.get(`${this.API}/${id}`);
+    }
+    
 
 }

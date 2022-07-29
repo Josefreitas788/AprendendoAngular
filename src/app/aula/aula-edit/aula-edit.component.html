@@ -1,1 +1,54 @@
-<p>aula-edit works!</p>
+<h3 class="text-center">Altere os valores da aula</h3>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div [hidden]="updated" style="width: 400px">
+            <form [formGroup]="aulaForm" (submit)="update()">
+                <div class="form-group">
+                    <label for="descricao">Descricao</label>
+                    <input type="text" class="form-control" formControlName="descricao" data-toggle="tooltip"
+                        data-placement="right" title="Digite descrição da aula" name="descricao" [(ngModel)]="aula!.descricao" />
+                    <div class="alert alert-danger"
+                        *ngIf="aulaForm.get('descricao')?.touched && aulaForm.get('descricao')?.invalid"
+                        style="margin-top: 5px">
+                        <span *ngIf="aulaForm.get('descricao')?.errors?.['required']">A descrição da aula é
+                            obrigatório</span>
+                        <span *ngIf="aulaForm.get('descricao')?.errors?.['minlength']">
+                            Nome da aula deve ter pelo menos 4 caracteres
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tempoDuracao">Tempo de Duração</label>
+                    <input type="text" class="form-control" formControlName="tempoDuracao" data-toggle="tooltip"
+                        data-placement="right" title="Digite o tempo de duração da aula" name="tempoDuracao"
+                        [(ngModel)]="aula!.tempoDuracao" />
+                    <div class="alert alert-danger" *ngIf="aulaForm.get('tempoDuracao')?.touched &&aulaForm.get('tempoDuracao')?.invalid
+" style="margin-top: 5px">
+                        <span *ngIf="aulaForm.get('descricao')?.errors?.['required']">Carga horária é obrigatória</span>
+                    </div>
+                </div>
+                <div class="form-group"><label for="curso">Curso</label>
+                    <select class="form-control" formControlName="curso" data-toggle="tooltip" name="curso"
+                        data-placement="right" title="Selecione a curso">
+                        <option [ngValue]="curso" *ngFor="let curso of cursos">
+                            {{ curso.nome }}
+                        </option>
+                    </select>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-success">Salvar</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div [hidden]="!updated">
+            <h5 class="text-success">Curso alterado com sucesso</h5>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Aula } from '../aula/aula.model';
 import { AulaService } from '../aula/aula.service';
 
@@ -9,7 +10,9 @@ import { AulaService } from '../aula/aula.service';
 })
 export class AulaListComponent implements OnInit {
   deleteMessage = false;
-  constructor(private aulaService: AulaService) { }
+  constructor(
+    private aulaService: AulaService,
+    private router: Router) { }
 
   aulas: Aula[] = [];
   delete(id?: number) {
@@ -22,6 +25,9 @@ export class AulaListComponent implements OnInit {
     },
       error => console.log(error)
     );
+  }
+  updateAula(id?: number) {
+    this.router.navigate(['edit-aula', id]);
   }
   ngOnInit(): void {
     this.aulaService.listarAulas().subscribe(dados => {

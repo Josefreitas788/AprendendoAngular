@@ -32,7 +32,7 @@
           <label for="curso">curso</label>
           <select class="form-control" formControlName="curso" data-toggle="tooltip" name="curso"
             data-placement="right" title="Selecione a curso">
-            <option [ngValue]="cursos" *ngFor="let curso of cursos">
+            <option [ngValue]="curso" *ngFor="let curso of cursos">
               {{ curso.nome }}
             </option>
           </select>

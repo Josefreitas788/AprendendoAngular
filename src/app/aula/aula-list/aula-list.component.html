@@ -28,17 +28,13 @@
                 <tr *ngFor="let aula of aulas ">
                     <td>{{aula.descricao}}</td>
                     <td>{{aula.tempoDuracao}}</td>
-                    <td>{{aula.curso}}</td>
+                    <td>{{aula.curso.nome}}</td>
                     <td>
-                        <button class='btn btn-primary'><i class="fafa-trash">
-                                Excluir
-                            </i></button>&nbsp;
-                        <button class='btn btn-info'><i class="fa fa-edit"></i>
-                            Editar
-                        </button>
                         <button class='btn btn-primary' (click)="delete(aula.id)">
                             <i class="fa fa-trash"> Excluir</i>
                         </button>&nbsp;
+                        <button class='btn btn-info' (click)="updateAula(aula.id)"><i class="fa fa-edit"></i>
+                            Editar</button>
                     </td>
                 </tr>
             </tbody><br>

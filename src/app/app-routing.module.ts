@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AulaCreateComponent } from './aula/aula-create/aula-create.component';
+import { AulaEditComponent } from './aula/aula-edit/aula-edit.component';
 import { AulaListComponent } from './aula/aula-list/aula-list.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { CursoCreateComponent } from './curso/curso-create/curso-create.component';
@@ -31,7 +32,12 @@ const routes: Routes = [
   {
     path: 'lista-aula',
     component: AulaListComponent
-  }  
+  },
+  {
+    path: 'edit-aula/:id',
+    component: AulaEditComponent
+    }
+   
 ];
 
 @NgModule({
