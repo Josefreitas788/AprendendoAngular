@@ -29,6 +29,9 @@ export class AulaListComponent implements OnInit {
   updateAula(id?: number) {
     this.router.navigate(['edit-aula', id]);
   }
+  detalheAula(id?: number){
+    this.router.navigate(['detail-aula',id]);
+    }
   ngOnInit(): void {
     this.aulaService.listarAulas().subscribe(dados => {
       this.aulas = dados;

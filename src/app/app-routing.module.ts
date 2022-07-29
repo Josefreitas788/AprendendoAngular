@@ -36,7 +36,11 @@ const routes: Routes = [
   {
     path: 'edit-aula/:id',
     component: AulaEditComponent
-    }
+  },
+  {
+    path: 'detail-aula/:id',
+    component: AulaEditComponent
+  }
    
 ];
 
