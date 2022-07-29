@@ -1,0 +1,5 @@
+export enum Modalidade {
+  PRESENCIAL = 'PRESENCIAL',
+  EAD = 'EAD',
+  SEMI_PRESENCIAL = 'SEMI_PRESENCIAL'
+}
